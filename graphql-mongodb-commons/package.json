@@ -1,0 +1,12 @@
+{
+  "type":"module",
+  "name": "graphql-mongodb-commons",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "",
+  "license": "MIT"
+}

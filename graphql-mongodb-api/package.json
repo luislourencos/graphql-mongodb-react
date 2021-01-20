@@ -1,0 +1,43 @@
+{
+  "type":"module",
+  "name": "graphql-mongodb-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "start_": "node build/server.ts",
+    "build": "tsc -p .&& ncp src/schema build/schema",
+    "start:dev": "npm run build:dev",
+    "build:dev": "nodemon 'src/server.ts' --exec 'ts-node' src/server.ts -e ts,json,graphql"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jsonwebtoken": "^8.5.0",
+    "apollo-server-express": "^2.19.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "graphql": "^15.4.0",
+    "graphql-import-node": "0.0.4",
+    "graphql-mongodb-data": "file:../graphql-mongodb-data",
+    "graphql-mongodb-logic": "file:../graphql-mongodb-logic",
+    "graphql-playground-middleware-express": "^1.7.22",
+    "graphql-tools": "^7.0.2",
+    "http": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "ncp": "^2.0.0",
+    "nodemon": "^2.0.7",
+    "typescript": "^4.1.3"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.0",
+    "@types/cors": "^2.8.9",
+    "@types/express": "^4.17.11",
+    "@types/graphql": "^14.5.0",
+    "@types/lodash": "^4.14.167",
+    "@types/node": "^14.14.21"
+  }
+}
