@@ -2,6 +2,7 @@ import cors from 'cors';
 import express from 'express';
 import {ApolloServer} from 'apollo-server-express';
 import {schema} from './schema'
+import {isAuth} from './middleware/isAuth'
 
 import 'dotenv/config'
 import {mongoose} from 'graphql-mongodb-data';
@@ -11,6 +12,9 @@ const app = express();
 
 const server  = new ApolloServer({
     schema,
+    context: ({req}:any) => ({
+        req:req
+      }),
     introspection:true
 })
 
@@ -19,6 +23,8 @@ mongoose.connect(MONGODB_URL)
 .then(()=>{
     console.info('Conected with data base!!!');
     app.use(cors());
+    app.use(isAuth);
+
     server.applyMiddleware({app});
 
     app.listen(PORT,()=>{
